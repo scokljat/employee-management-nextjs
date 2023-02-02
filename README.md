@@ -20,7 +20,7 @@ git clone https://github.com/scokljat/employee-management-nextjs.git
 Add .env.development.local file:
 
 ```
- MONGO_URI=mongodb+srv://<username>:<password>@employees.8ufsjrn.mongodb.net
+MONGO_URI=mongodb+srv://<username>:<password>@employees.8ufsjrn.mongodb.net
 BASE_URL=BASE_URL
 ```
 
