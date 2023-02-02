@@ -12,7 +12,7 @@ export async function getUsers(req, res) {
   }
 }
 
-//get /api/users/1
+//get : /api/users/1
 export async function getUser(req, res) {
   try {
     const { userId } = req.query;

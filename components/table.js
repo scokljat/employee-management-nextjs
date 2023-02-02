@@ -1,7 +1,7 @@
-import { BiEdit, BiTrashAlt } from "react-icons/bi";
-import { getUsers } from "@/lib/helper";
 import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
+import { BiEdit, BiTrashAlt } from "react-icons/bi";
+import { getUsers } from "@/lib/helper";
 import {
   deleteAction,
   toggleChangeAction,

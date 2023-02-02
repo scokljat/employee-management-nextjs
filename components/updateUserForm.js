@@ -1,12 +1,11 @@
-import { useReducer } from "react";
-import { BiBrush } from "react-icons/bi";
-import Success from "./success";
-import Error from "./error";
 import { useQuery, useMutation, useQueryClient } from "react-query";
+import { BiBrush } from "react-icons/bi";
 import { getUser, updateUser, getUsers } from "@/lib/helper";
+import { toggleChangeAction } from "@/redux/reducer";
+import { useDispatch } from "react-redux";
 
 function UpdateUserForm({ formId, formData, setFormData }) {
-  //useReducer first function;second initial state
+  const dispatch = useDispatch();
 
   const { isLoading, isError, data, error } = useQuery(["users", formId], () =>
     getUser(formId)
@@ -15,7 +14,7 @@ function UpdateUserForm({ formId, formData, setFormData }) {
   const updatedMutation = useMutation(
     (newData) => updateUser(formId, newData),
     {
-      onSuccess: async (data) => {
+      onSuccess: async () => {
         queryClient.prefetchQuery("users", getUsers);
       },
     }
@@ -34,6 +33,7 @@ function UpdateUserForm({ formId, formData, setFormData }) {
     }`;
     let updated = Object.assign({}, data, formData, { name: username });
     await updatedMutation.mutate(updated);
+    dispatch(toggleChangeAction());
   };
 
   // if (Object.keys(formData).length > 0)

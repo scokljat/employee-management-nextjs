@@ -1,7 +1,7 @@
-import "@/styles/globals.css";
+import { Provider } from "react-redux";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { store } from "../redux/store";
-import { Provider } from "react-redux";
+import "@/styles/globals.css";
 
 //create a client
 
